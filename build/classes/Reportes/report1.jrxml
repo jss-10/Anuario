@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b71e1e69-5778-44be-bf35-c18e6a50c506">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="230"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select*from alumnos]]>
+	</queryString>
+	<field name="id_alumno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="imagen" class="java.io.InputStream">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pri_nom" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="seg_nom" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pri_ap" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="seg_ap" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sexo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="carrera" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="a_entrada" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="a_salida" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band height="6"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="129"/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band height="3"/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<textField>
+				<reportElement uuid="3d5ad669-a313-41c1-8a1b-70cd108a2c69" style="Title" x="46" y="10" width="435" height="93"/>
+				<textElement markup="none">
+					<font size="80" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Alumnos"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7330c29e-87ca-461e-9cd7-4530d667e36e" style="SubTitle" x="140" y="103" width="217" height="29"/>
+				<textElement markup="none">
+					<font size="22" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Reporte con fotos"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="226" splitType="Stretch">
+			<textField>
+				<reportElement uuid="eb14a70a-7a4a-40e5-a46a-4bb027d48e3a" x="223" y="10" width="134" height="20"/>
+				<textElement markup="none">
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Número de registro"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fc924546-b1d0-4f84-a85b-cecc60d594fa" x="357" y="10" width="131" height="20"/>
+				<textElement>
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_alumno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b422a52a-dc21-43f8-958d-c6009a0e0d7a" x="223" y="30" width="134" height="20"/>
+				<textElement markup="none">
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Primer nombre"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6710db89-0080-44e6-84ae-14131891f10d" x="357" y="30" width="131" height="20"/>
+				<textElement>
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pri_nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="50688e6b-8a3f-4dad-b592-181f5299fd4a" x="223" y="50" width="134" height="20"/>
+				<textElement markup="none">
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Segundo nombre"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5e5f0b38-384d-40eb-a931-33e723da7a59" x="357" y="50" width="131" height="20"/>
+				<textElement>
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seg_nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f3e27ab0-292f-47e9-96ac-ffe9b2f52e70" x="223" y="70" width="134" height="20"/>
+				<textElement markup="none">
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Apellido paterno"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e9cf0970-1840-4dec-931f-ca8d470b26f9" x="357" y="70" width="127" height="20"/>
+				<textElement>
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pri_ap}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="56559d00-884a-41cf-bc0c-8933e901e1ae" x="223" y="89" width="134" height="20"/>
+				<textElement markup="none">
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Apellido materno"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7da3d37a-8e79-4b0c-9c2c-61012b22b8fb" x="357" y="89" width="131" height="20"/>
+				<textElement>
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seg_ap}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b1238113-bf34-47c9-a286-8ce36d6c2523" x="223" y="109" width="134" height="20"/>
+				<textElement markup="none">
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Sexo"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3d161bcc-b927-4341-825b-95f0946e1cbc" x="357" y="109" width="131" height="20"/>
+				<textElement>
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6544fd4d-e7c5-422b-a44f-a64103ede4b6" x="223" y="129" width="134" height="20"/>
+				<textElement markup="none">
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Carrera"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ad1145e1-df5c-4115-a55d-06ee2eb4bba2" x="357" y="129" width="158" height="20"/>
+				<textElement>
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{carrera}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="75b8ad4f-748c-4e3d-9a68-a7431960cf5b" x="223" y="149" width="134" height="20"/>
+				<textElement markup="none">
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Año de entrada"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="21909d75-6c33-40a8-bc86-3c9346660afd" x="357" y="149" width="131" height="20"/>
+				<textElement>
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{a_entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b8e71b8b-dac6-4c75-9e6f-39c3dec91f1a" x="223" y="169" width="134" height="20"/>
+				<textElement markup="none">
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Año de salida"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7e9872a8-508a-4c6f-b1aa-e8ae09cc2e58" x="357" y="169" width="127" height="20"/>
+				<textElement>
+					<font fontName="Andalus" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{a_salida}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="bbef0c12-efe8-4c1b-8c79-e5b87b21372e" x="2" y="30" width="199" height="190"/>
+				<imageExpression><![CDATA[$F{imagen}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="81" splitType="Stretch">
+			<line>
+				<reportElement uuid="da51f0c9-2737-4c96-835e-c15ad65a0b02" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="d874b964-5d30-4715-ab9c-6b84af5feb3e" positionType="FixRelativeToBottom" x="6" y="79" width="551" height="1"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="29" splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="21"/>
+	</lastPageFooter>
+	<summary>
+		<band height="31" splitType="Stretch">
+			<frame>
+				<reportElement uuid="cd809625-528e-4fd5-95eb-160153488d6b" mode="Opaque" x="2" y="18" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="dad458f1-9bc9-4767-9030-bffd0b2aa750" style="Column header" x="513" y="-1" width="40" height="13" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="9229695f-9ffa-4685-adb3-bd431ea750fc" style="Column header" x="433" y="-1" width="80" height="13" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="71fb34d2-4246-404e-b40f-70e3d9ca29c7" style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>
